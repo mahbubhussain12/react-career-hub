@@ -1,12 +1,14 @@
+/* eslint-disable react/prop-types */
 import { IoLocation } from "react-icons/io5";
 import { AiFillDollarCircle } from "react-icons/ai";
+import { Link } from "react-router-dom";
 const Job = ({ job }) => {
-  const {
+  const { id,
     logo,job_title, company_name, remote_or_onsite, location,job_type,salary,} = job;
   return (
-    <div className="card card-compact  bg-gray-300 shadow-xl">
+    <div className="card card-compact  bg-gray-100 shadow-xl">
       <figure>
-        <img src={logo} alt="Shoes" />
+        <img className="mt-4" src={logo} alt="Shoes" />
       </figure>
       <div className="card-body">
         <h2 className="card-title">{job_title}</h2>
@@ -29,7 +31,8 @@ const Job = ({ job }) => {
           </h2>
         </div>
         <div className="card-actions ">
-          <button className="btn btn-primary">View Details</button>
+          <Link to={`/jobs/${id}`}><button className="btn btn-primary">View Details</button>
+          </Link>
         </div>
       </div>
     </div>
